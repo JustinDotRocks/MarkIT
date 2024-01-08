@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build-css": "tailwindcss build styles.css -o dist/styles.css",
+    "start": "live-server"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
