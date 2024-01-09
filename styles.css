@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Example of custom CSS using Tailwind's @apply directive */
+.navbar {
+    @apply bg-blue-500 text-white p-4;
+}
+
+.sidebar {
+    @apply bg-gray-200 w-64 min-h-screen;
+}
+
+.canvas {
+    @apply flex-1 p-4;
+}
+
+.container {
+    @apply flex;
+}
