@@ -16,7 +16,7 @@
         <!-- Container for Modes -->
         <div class="modes">
             <button id="setup-mode" class="menu-btn mr-2">Setup Mode</button>
-            <button id="vendor-mode" class="menu-btn">Vendor Mode</button>
+            <button id="vendor-mode" class="menu-btn p-2">Vendor Mode</button>
         </div>
 
         <div>
@@ -28,10 +28,14 @@
     <div class="container">
         <aside class="sidebar">
             <!-- Left Menu Area Content -->
-            <ul>
-                <li>Menu Item 1</li>
-                <li>Menu Item 2</li>
-            </ul>
+            <div id="setup-menu" class="active ">
+                <!-- Setup Menu Content -->
+                Setup Menu
+            </div>
+            <div id="vendor-menu" class="hidden active">
+                <!-- Vendor Menu Content -->
+                Vendor Menu
+            </div>
         </aside>
         <main class="canvas">
             <!-- Canvas Area Content -->

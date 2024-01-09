@@ -31,6 +31,14 @@
     @apply mr-4;
 }
 
+.hidden {
+    display: none;
+}
+
+.active {
+    @apply bg-blue-500 text-white;
+}
+
 .about-link {
     @apply text-white text-sm hover:text-orange-300;
 }
