@@ -4,7 +4,35 @@
 
 /* Example of custom CSS using Tailwind's @apply directive */
 .navbar {
-    @apply bg-blue-500 text-white p-4;
+    @apply bg-blue-500 text-white p-6 flex justify-between items-center;
+}
+
+.markit h1 {
+    @apply text-lg font-bold;
+}
+
+.modes {
+    @apply ml-32; /* Adjust the margin-left as needed */
+}
+
+.menu-button {
+    @apply text-white py-2 px-4 rounded transition-colors duration-300;
+}
+
+.menu-btn.active {
+    @apply bg-orange-600; /* Active state color */
+}
+
+#setup-mode {
+    @apply mr-4;
+}
+
+#vendor-mode {
+    @apply mr-4;
+}
+
+.about-link {
+    @apply text-white text-sm hover:text-orange-300;
 }
 
 .sidebar {
