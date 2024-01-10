@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    max-height: calc(100vh - 64px); /* Adjust the value based on your design */
+    overflow-y: hidden;
+}
 
 .container {
     @apply flex;
@@ -53,12 +57,22 @@
     @apply bg-englishViolet text-white w-64 min-h-screen;
 }
 
-.setup-menu-top-container {
-    @apply flex;
+.menu-top-container {
+    @apply flex justify-evenly;
+    
 }
 
 .card-container {
     @apply px-8 bg-vistaBlue border border-vistaBlue text-englishViolet rounded-lg shadow-md m-4;
+}
+
+.vendor-card-container {
+
+}
+
+#vendor-menu {
+    max-height: calc(100vh - 64px); /* Adjust the value based on your design */
+    overflow-y: auto;
 }
 
 /* CANVAS */
