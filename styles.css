@@ -7,8 +7,9 @@
     @apply flex;
 }
 
+/* NAV BAR */
 .navbar {
-    @apply bg-white text-orange-600 p-6 flex justify-between items-center;
+    @apply bg-englishViolet text-white p-6 flex justify-between items-center;
 }
 
 .markit h1 {
@@ -24,7 +25,7 @@
 }
 
 .menu-btn.active {
-    @apply bg-orange-600 text-white;
+    @apply bg-vistaBlue text-white;
 }
 
 #setup-mode {
@@ -43,11 +44,13 @@
 }
 
 .about-link {
-    @apply text-orange-600 text-sm hover:text-orange-300;
+    @apply text-white text-sm hover:text-vistaBlue;
 }
 
+/* SIDE MENU */
+
 .sidebar {
-    @apply bg-orange-600 w-64 min-h-screen;
+    @apply bg-englishViolet text-white w-64 min-h-screen;
 }
 
 .setup-menu-top-container {
@@ -55,8 +58,10 @@
 }
 
 .card-container {
-    @apply px-8 bg-white border border-white rounded-lg shadow-md m-4;
+    @apply px-8 bg-vistaBlue border border-vistaBlue text-englishViolet rounded-lg shadow-md m-4;
 }
+
+/* CANVAS */
 
 .canvas {
     @apply flex-1 p-4 bg-gray-400;
