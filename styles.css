@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Example of custom CSS using Tailwind's @apply directive */
+
+.container {
+    @apply flex;
+}
+
 .navbar {
-    @apply bg-blue-500 text-white p-6 flex justify-between items-center;
+    @apply bg-white text-orange-600 p-6 flex justify-between items-center;
 }
 
 .markit h1 {
@@ -12,7 +16,7 @@
 }
 
 .modes {
-    @apply ml-32; /* Adjust the margin-left as needed */
+    @apply ml-32; 
 }
 
 .menu-button {
@@ -20,7 +24,7 @@
 }
 
 .menu-btn.active {
-    @apply bg-orange-600; /* Active state color */
+    @apply bg-orange-600 text-white;
 }
 
 #setup-mode {
@@ -36,21 +40,25 @@
 }
 
 .active {
-    @apply bg-blue-500 text-white;
 }
 
 .about-link {
-    @apply text-white text-sm hover:text-orange-300;
+    @apply text-orange-600 text-sm hover:text-orange-300;
 }
 
 .sidebar {
-    @apply bg-gray-200 w-64 min-h-screen;
+    @apply bg-orange-600 w-64 min-h-screen;
+}
+
+.setup-menu-top-container {
+    @apply flex;
+}
+
+.card-container {
+    @apply px-8 bg-white border border-white rounded-lg shadow-md m-4;
 }
 
 .canvas {
-    @apply flex-1 p-4;
+    @apply flex-1 p-4 bg-gray-400;
 }
 
-.container {
-    @apply flex;
-}

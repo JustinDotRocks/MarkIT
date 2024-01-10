@@ -28,9 +28,106 @@
     <div class="container">
         <aside class="sidebar">
             <!-- Left Menu Area Content -->
-            <div id="setup-menu" class="active ">
-                <!-- Setup Menu Content -->
-                Setup Menu
+            <div id="setup-menu" class="active">
+
+                <div class="setup-menu-top-container">
+                    <h2 class="setup-menu-top-container-header">Room Setup</h2>
+                    <button class="setup-menu-top-container-add-room-button">X</button>
+                </div>
+
+                <div class="mb-4">
+                    <input
+                      type="text"
+                      id="room-name"
+                      name="room-name"
+                      class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                      placeholder="Room name"
+                    />
+                  </div>
+                <div class="card-container">
+                    <div class="text-lg font-semibold mb-4">Room Dimensions</div>
+
+                    <div class="mb-4">
+                    <label for="room-width" class="block text-gray-600">Room Width:</label>
+                    <input
+                        type="text"
+                        id="room-width"
+                        name="room-width"
+                        class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        placeholder="Enter room width"
+                    />
+                    </div>
+
+                    <div class="mb-4">
+                    <label for="room-depth" class="block text-blue-600">Room Depth:</label>
+                    <input
+                        type="text"
+                        id="room-depth"
+                        name="room-depth"
+                        class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        placeholder="Enter room depth"
+                    />
+                    </div>
+                </div>
+
+                    <!-- Add Door Section -->
+    <div class="mb-4">
+        <div class="flex items-center justify-between mb-2">
+          <div class="text-gray-600">Add Door</div>
+          <button class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+            +
+          </button>
+        </div>
+        <!-- Add Door Input (if needed) -->
+      </div>
+  
+      <!-- Add Obstacle Section -->
+      <div class="mb-4">
+        <div class="flex items-center justify-between mb-2">
+          <div class="text-gray-600">Add Obstacle</div>
+          <button class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+            +
+          </button>
+        </div>
+        <!-- Add Obstacle Input (if needed) -->
+      </div>
+
+                <div class="card-container">
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                      <div class="text-lg font-semibold mb-4">Add Tables</div>
+                  
+                      <!-- Choice 1 -->
+                      <div class="flex items-center mb-2">
+                        <div class="flex-grow">
+                          <span class="text-gray-600">6' Rectangle</span>
+                        </div>
+                        <button class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+                          +
+                        </button>
+                      </div>
+                  
+                      <!-- Choice 2 -->
+                      <div class="flex items-center mb-2">
+                        <div class="flex-grow">
+                          <span class="text-gray-600">8' Rectangle</span>
+                        </div>
+                        <button class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+                          +
+                        </button>
+                      </div>
+                  
+                      <!-- Choice 3 -->
+                      <div class="flex items-center">
+                        <div class="flex-grow">
+                          <span class="text-gray-600">5' Round</span>
+                        </div>
+                        <button class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
             </div>
             <div id="vendor-menu" class="hidden active">
                 <!-- Vendor Menu Content -->
