@@ -87,3 +87,28 @@ const createNewVendorCard = () => {
 
 // Event listener for the "Create Vendor" button
 createVendorButton.addEventListener('click', createNewVendorCard);
+
+
+// Load JSON data
+// fetch('menuData.json')
+//   .then(response => response.json())
+//   .then(data => {
+//     // Use the data for your web app
+//     console.log(data);
+//   })
+//   .catch(error => {
+//     console.error('Error loading JSON data:', error);
+//   });
+
+// Load initial JSON data
+fetch('data.json') // Replace 'menuData.json' with the correct path to your JSON file
+  .then(response => response.json())
+  .then(data => {
+    // The 'data' variable now contains the JSON data
+    console.log(data); // You can use this data to populate your app's UI
+  })
+  .catch(error => {
+    console.error('Error loading JSON data:', error);
+  });
+
+

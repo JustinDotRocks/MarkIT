@@ -81,3 +81,8 @@ body {
     @apply flex-1 p-4 bg-gray-400;
 }
 
+.canvas-container {
+    @apply bg-white p-4 rounded-lg shadow-md m-10;
+    height: 75vh;
+}
+

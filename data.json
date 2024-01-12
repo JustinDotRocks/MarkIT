@@ -1,0 +1,17 @@
+{
+	"roomSetup": {
+		"roomName": "Sample Room",
+		"roomDimensions": {
+			"width": "10 feet",
+			"depth": "12 feet"
+		},
+		"doors": [],
+		"obstacles": [],
+		"tables": ["6' Rectangle", "8' Rectangle", "5' Round"]
+	},
+	"vendorSetup": {
+		"vendorName": "Sample Vendor",
+		"vendorDetails": "This is a sample vendor.",
+		"products": []
+	}
+}
