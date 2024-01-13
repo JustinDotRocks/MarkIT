@@ -1,43 +1,43 @@
+document.addEventListener("DOMContentLoaded", () => {
+	const setupModeBtn = document.getElementById("setup-mode");
+	const vendorModeBtn = document.getElementById("vendor-mode");
+	const setupMenu = document.getElementById("setup-menu");
+	const vendorMenu = document.getElementById("vendor-menu");
 
-document.addEventListener('DOMContentLoaded', () => {
-    const setupModeBtn = document.getElementById('setup-mode');
-    const vendorModeBtn = document.getElementById('vendor-mode');
-    const setupMenu = document.getElementById('setup-menu');
-    const vendorMenu = document.getElementById('vendor-menu');
+	setupModeBtn.addEventListener("click", () => {
+		setupMenu.classList.remove("hidden");
+		vendorMenu.classList.add("hidden");
+		setupModeBtn.classList.add("active");
+		vendorModeBtn.classList.remove("active");
+		// Additional logic for setup mode if necessary
+	});
 
-    setupModeBtn.addEventListener('click', () => {
-        setupMenu.classList.remove('hidden');
-        vendorMenu.classList.add('hidden');
-        setupModeBtn.classList.add('active');
-        vendorModeBtn.classList.remove('active');
-        // Additional logic for setup mode if necessary
-    });
-
-    vendorModeBtn.addEventListener('click', () => {
-        vendorMenu.classList.remove('hidden');
-        setupMenu.classList.add('hidden');
-        vendorModeBtn.classList.add('active');
-        setupModeBtn.classList.remove('active');
-        // Additional logic for vendor mode if necessary
-    });
+	vendorModeBtn.addEventListener("click", () => {
+		vendorMenu.classList.remove("hidden");
+		setupMenu.classList.add("hidden");
+		vendorModeBtn.classList.add("active");
+		setupModeBtn.classList.remove("active");
+		// Additional logic for vendor mode if necessary
+	});
 });
 
 // Select the "Create Vendor" button using the provided class
-const createVendorButton = document.querySelector('.menu-top-container-add-vendor-button');
+const createVendorButton = document.querySelector(
+	".menu-top-container-add-vendor-button"
+);
 
 // Select the container where new vendor cards will be added
-const vendorMenu = document.getElementById('vendor-menu');
+const vendorMenu = document.getElementById("vendor-menu");
 
-// Counter to keep track of the number of vendors
 let vendorCounter = 1;
 
 // Function to create a new vendor card
 const createNewVendorCard = () => {
-  // Create a new container for the vendor card
-  const vendorCard = document.createElement('div');
-  vendorCard.classList.add('card-container'); // Add 'mb-4' to create space between cards
+	// Create a new container for the vendor card
+	const vendorCard = document.createElement("div");
+	vendorCard.classList.add("card-container");
 
-  vendorCard.innerHTML = `
+	vendorCard.innerHTML = `
   <div class="bg-white rounded-lg shadow-md p-4">
   <div class="flex items-center justify-between mb-4">
     <!-- Vendor Name Input -->
@@ -79,36 +79,70 @@ const createNewVendorCard = () => {
 
   `;
 
-  // Append the new vendor card to the vendor menu container
-  vendorMenu.appendChild(vendorCard);
+	// Append the new vendor card to the vendor menu container
+	vendorMenu.appendChild(vendorCard);
 
-  vendorCounter++;
+	vendorCounter++;
 };
 
 // Event listener for the "Create Vendor" button
-createVendorButton.addEventListener('click', createNewVendorCard);
+createVendorButton.addEventListener("click", createNewVendorCard);
 
 
-// Load JSON data
-// fetch('menuData.json')
-//   .then(response => response.json())
-//   .then(data => {
-//     // Use the data for your web app
-//     console.log(data);
-//   })
-//   .catch(error => {
-//     console.error('Error loading JSON data:', error);
-//   });
+// ROOM MENU
+// Function to load initial JSON data
+const loadData = () => {
+  fetch('data.json') // Replace 'data.json' with the correct path to the JSON file
+    .then(response => response.json())
+    .then(jsonData => {
+      data = jsonData;
+      updateRoomUI();
+      console.log(data);
+    })
+    .catch(error => console.error('Error loading JSON data:', error));
+};
 
-// Load initial JSON data
-fetch('data.json') // Replace 'menuData.json' with the correct path to your JSON file
-  .then(response => response.json())
-  .then(data => {
-    // The 'data' variable now contains the JSON data
-    console.log(data); // You can use this data to populate your app's UI
-  })
-  .catch(error => {
-    console.error('Error loading JSON data:', error);
-  });
+// updateRoomUI is for initial UI setup based on loaded data.
+// saveRoomDetails is for handling the save action and updating the data object.
+// updateRoomDetailsUI is specifically for updating the displayed room dimensions in the UI after changes are made and saved.
 
+// Function to update the Room Setup Menu UI
+const updateRoomUI = () => {
+  const roomNameElement = document.getElementById('room-name');
+  const roomWidthElement = document.getElementById('room-width');
+  const roomDepthElement = document.getElementById('room-depth');
+
+  roomNameElement.value = data.roomSetup.roomName;
+  roomWidthElement.value = data.roomSetup.roomDimensions.width;
+  roomDepthElement.value = data.roomSetup.roomDimensions.depth;
+};
+
+// Function to save room details
+const saveRoomDetails = () => {
+  const updatedRoomName = document.getElementById('room-name').value;
+  const updatedRoomWidth = document.getElementById('room-width').value;
+  const updatedRoomDepth = document.getElementById('room-depth').value;
+
+  data.roomSetup.roomName = updatedRoomName;
+  data.roomSetup.roomDimensions.width = updatedRoomWidth;
+  data.roomSetup.roomDimensions.depth = updatedRoomDepth;
+
+  updateRoomDetailsUI(updatedRoomName, updatedRoomWidth, updatedRoomDepth);
+};
+
+// Function to update the Room Details UI
+const updateRoomDetailsUI = (name, width, depth) => {
+  const roomNameElement = document.getElementById('canvas-room-name');
+  const roomDimensionsElement = document.getElementById('room-dimensions');
+
+  roomNameElement.textContent = `Room Name: ${name}`;
+  roomDimensionsElement.textContent = `Room Dimensions: Width - ${width} feet, Depth - ${depth} feet`;
+};
+
+
+// Event listener for the save button
+document.getElementById('save-button').addEventListener('click', saveRoomDetails);
+
+// Initial data load
+loadData();
 

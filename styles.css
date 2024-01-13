@@ -62,6 +62,10 @@ body {
     
 }
 
+.room-name-input {
+    @apply bg-englishViolet text-white w-full px-3 py-2  border rounded-md focus:outline-none focus:border-blue-500;
+}
+
 .card-container {
     @apply px-8 bg-vistaBlue border border-vistaBlue text-englishViolet rounded-lg shadow-md m-4;
 }

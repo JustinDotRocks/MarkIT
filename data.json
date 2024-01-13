@@ -1,9 +1,9 @@
 {
 	"roomSetup": {
-		"roomName": "Sample Room",
+		"roomName": "",
 		"roomDimensions": {
-			"width": "10 feet",
-			"depth": "12 feet"
+			"width": "",
+			"depth": ""
 		},
 		"doors": [],
 		"obstacles": [],

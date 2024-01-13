@@ -31,7 +31,7 @@
 				<div id="setup-menu" class="active">
 					<div class="menu-top-container">
 						<h2 class="setup-menu-top-container-header">Room Setup</h2>
-						<button class="setup-menu-top-container-add-room-button">+</button>
+						<button id="save-button" class="setup-menu-top-container-add-room-button">+</button>
 					</div>
 
 					<div class="mb-4">
@@ -39,7 +39,7 @@
 							type="text"
 							id="room-name"
 							name="room-name"
-							class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+							class="room-name-input"
 							placeholder="Room name"
 						/>
 					</div>
@@ -55,7 +55,7 @@
 								id="room-width"
 								name="room-width"
 								class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-								placeholder="Enter room width"
+								placeholder="Enter Room Width"
 							/>
 						</div>
 
@@ -68,7 +68,7 @@
 								id="room-depth"
 								name="room-depth"
 								class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-								placeholder="Enter room depth"
+								placeholder="Enter Room Depth"
 							/>
 						</div>
 					</div>
@@ -150,7 +150,13 @@
 				</div>
 			</aside>
 			<main class="canvas">
-                <div class="canvas-container">Canvas Container</div>
+                <div class="canvas-container">Canvas Container
+                    <span id="canvas-room-name"></span>
+                    <!-- Display Room Dimensions here -->
+                    <div id="room-dimensions" class="text-lg font-semibold mb-4">
+                        <span id="display-room-width"></span><span id="display-room-depth"></span>
+                    </div>
+                </div>
 
 			</main>
 		</div>
