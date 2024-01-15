@@ -261,6 +261,6 @@ const update8TableUI = (table) => {
 // Attach an event listener to the "Add Obstacle" button
 add6TableButton.addEventListener('click', addNew6Table);
 add8TableButton.addEventListener('click', addNew8Table);
-
+//
 loadData();
 
