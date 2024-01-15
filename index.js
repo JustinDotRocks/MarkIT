@@ -90,11 +90,14 @@ createVendorButton.addEventListener("click", createNewVendorCard);
 
 // ROOM MENU
 
-// Assuming you have a button with the class "add-door-button" for adding doors
 const addDoorButton = document.querySelector('#add-door-button');
 const roomDoorContainer = document.querySelector('#room-door');
+
 const addObstacleButton = document.querySelector('#add-obstacle-button');
 const roomObstacleContainer = document.querySelector('#room-obstacle');
+const add6TableButton = document.querySelector('#add-6Table-button');
+const roomTableContainer = document.querySelector('#room-6-table');
+
 
 // Function to load initial JSON data
 const loadData = () => {
@@ -144,6 +147,8 @@ const updateRoomDetailsUI = (name, width, depth) => {
 // Event listener for the save button
 document.getElementById('save-button').addEventListener('click', saveRoomDetails);
 
+// ADD DOOR
+
 // Function to add a new door
 const addNewDoor = () => {
   // Create a new door object (you can customize this structure as needed)
@@ -170,73 +175,58 @@ const updateDoorUI = (door) => {
 // Attach an event listener to the "Add Door" button
 addDoorButton.addEventListener('click', addNewDoor);
 
-// Add Obstacle
-// Function to add a new door
+// ADD OBSTACLE
+
+// Function to add a new obstacle
 const addNewObstacle = () => {
-  // Create a new door object (you can customize this structure as needed)
+  // Create a new obstacle object (you can customize this structure as needed)
   const newObstacle = '(obstacle)';
 
-  // Add the new door to the local data
+  // Add the new obstacle to the local data
   data.roomSetup.obstacles.push(newObstacle);
 
-  // Call a function to update the UI with the new door
-  updateDoorUI(newObstacle);
+  // Call a function to update the UI with the new obstacle
+  updateObstacleUI(newObstacle);
 
-  // Optionally, you can save the updated data to local storage here
 };
 
-// Function to update the UI with a new door
+// Function to update the UI with a new obstacle
 const updateObstacleUI = (obstacle) => {
   const obstacleTextElement = document.createElement('span');
   obstacleTextElement.textContent = obstacle;
 
-  // Add the door to the canvas (room-door-container)
+  // Add the obstacle to the canvas (room-obstacle-container)
   roomObstacleContainer.appendChild(obstacleTextElement);
 };
 
-// Attach an event listener to the "Add Door" button
+// Attach an event listener to the "Add Obstacle" button
 addObstacleButton.addEventListener('click', addNewObstacle);
 
+// ADD TABLE
 
-//       // Function to update the JSON file with the new data locally
-// const updateDataLocally = jsonData => {
-//   // Convert the updated data to a JSON string
-//   const jsonString = JSON.stringify(jsonData, null, 2);
+// Function to add a new door
+const addNew6Table = () => {
+  // Create a new 6' table object (you can customize this structure as needed)
+  const new6Table = '(6Table)';
 
-//   // Save the JSON string to your local data.json file using a method suitable for your environment
-//   // For example, if you are working with Node.js, you can use the 'fs' module to write the JSON string to the file.
+  // Add the new 6' Table to the local data
+  data.roomSetup.tables.push(new6Table);
 
-//   // Here's a simple example for Node.js:
-//   const fs = require('fs');
+  // Call a function to update the UI with the new 6' table
+  update6TableUI(new6Table);
+};
 
-//   fs.writeFileSync('data.json', jsonString);
+// Function to update the UI with a new 6' table
+const update6TableUI = (table6) => {
+  const table6TextElement = document.createElement('span');
+  table6TextElement.textContent = table6;
 
-//   console.log('Data saved locally');
-// };
+  // Add the 6' table to the canvas (room-table-container)
+  roomTableContainer.appendChild(table6TextElement);
+};
 
-// // Add an event listener to the container where doors will be added (roomDoor)
-// addDoorButton.addEventListener('click', (event) => {
-//   if (event.target.classList.contains('add-door-button')) {
-//     // Use data from your JSON file to create the door
-//     const doorData = {
-//       width: data.roomSetup.roomDimensions.width, // Use the width from your JSON
-//       height: '200px', // You can set a default height or use data from your JSON
-//       color: 'brown', // You can set a default color or use data from your JSON
-//       // Add other properties as needed
-//     };
+// Attach an event listener to the "Add Obstacle" button
+add6TableButton.addEventListener('click', addNew6Table);
 
-//     // Create a new door element
-//     const doorElement = document.createElement('div');
-//     doorElement.style.width = doorData.width;
-//     doorElement.style.height = doorData.height;
-//     doorElement.style.backgroundColor = doorData.color;
-//     // Set other styles and properties based on doorData
-
-//     // Add the door element to the canvas (roomDoor)
-//     roomDoor.appendChild(doorElement);
-//   }
-// });
-
-// Initial data load
 loadData();
 

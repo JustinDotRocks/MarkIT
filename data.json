@@ -7,7 +7,7 @@
 		},
 		"doors": [],
 		"obstacles": [],
-		"tables": ["6' Rectangle", "8' Rectangle", "5' Round"]
+		"tables": []
 	},
 	"vendorSetup": {
 		"vendorName": "Sample Vendor",
