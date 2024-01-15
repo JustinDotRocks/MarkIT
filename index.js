@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 	const setupModeBtn = document.getElementById("setup-mode");
 	const vendorModeBtn = document.getElementById("vendor-mode");
@@ -90,8 +91,10 @@ createVendorButton.addEventListener("click", createNewVendorCard);
 // ROOM MENU
 
 // Assuming you have a button with the class "add-door-button" for adding doors
-const addDoorButton = document.querySelector('.add-door-button');
+const addDoorButton = document.querySelector('#add-door-button');
 const roomDoorContainer = document.querySelector('#room-door');
+const addObstacleButton = document.querySelector('#add-obstacle-button');
+const roomObstacleContainer = document.querySelector('#room-obstacle');
 
 // Function to load initial JSON data
 const loadData = () => {
@@ -141,15 +144,75 @@ const updateRoomDetailsUI = (name, width, depth) => {
 // Event listener for the save button
 document.getElementById('save-button').addEventListener('click', saveRoomDetails);
 
-      // Attach an event listener to the "Add Door" button
-      addDoorButton.addEventListener('click', () => {
-        // Create a new text element representing a door
-        const doorTextElement = document.createElement('span');
-        doorTextElement.textContent = '(door)';
+// Function to add a new door
+const addNewDoor = () => {
+  // Create a new door object (you can customize this structure as needed)
+  const newDoor = '(door)';
 
-        // Add the door text element to the canvas (room-door-container)
-        roomDoorContainer.appendChild(doorTextElement);
-      });
+  // Add the new door to the local data
+  data.roomSetup.doors.push(newDoor);
+
+  // Call a function to update the UI with the new door
+  updateDoorUI(newDoor);
+
+  // Optionally, you can save the updated data to local storage here
+};
+
+// Function to update the UI with a new door
+const updateDoorUI = (door) => {
+  const doorTextElement = document.createElement('span');
+  doorTextElement.textContent = door;
+
+  // Add the door to the canvas (room-door-container)
+  roomDoorContainer.appendChild(doorTextElement);
+};
+
+// Attach an event listener to the "Add Door" button
+addDoorButton.addEventListener('click', addNewDoor);
+
+// Add Obstacle
+// Function to add a new door
+const addNewObstacle = () => {
+  // Create a new door object (you can customize this structure as needed)
+  const newObstacle = '(obstacle)';
+
+  // Add the new door to the local data
+  data.roomSetup.obstacles.push(newObstacle);
+
+  // Call a function to update the UI with the new door
+  updateDoorUI(newObstacle);
+
+  // Optionally, you can save the updated data to local storage here
+};
+
+// Function to update the UI with a new door
+const updateObstacleUI = (obstacle) => {
+  const obstacleTextElement = document.createElement('span');
+  obstacleTextElement.textContent = obstacle;
+
+  // Add the door to the canvas (room-door-container)
+  roomObstacleContainer.appendChild(obstacleTextElement);
+};
+
+// Attach an event listener to the "Add Door" button
+addObstacleButton.addEventListener('click', addNewObstacle);
+
+
+//       // Function to update the JSON file with the new data locally
+// const updateDataLocally = jsonData => {
+//   // Convert the updated data to a JSON string
+//   const jsonString = JSON.stringify(jsonData, null, 2);
+
+//   // Save the JSON string to your local data.json file using a method suitable for your environment
+//   // For example, if you are working with Node.js, you can use the 'fs' module to write the JSON string to the file.
+
+//   // Here's a simple example for Node.js:
+//   const fs = require('fs');
+
+//   fs.writeFileSync('data.json', jsonString);
+
+//   console.log('Data saved locally');
+// };
 
 // // Add an event listener to the container where doors will be added (roomDoor)
 // addDoorButton.addEventListener('click', (event) => {
