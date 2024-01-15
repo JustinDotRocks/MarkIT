@@ -94,11 +94,13 @@ const addDoorButton = document.querySelector('#add-door-button');
 const addObstacleButton = document.querySelector('#add-obstacle-button');
 const add6TableButton = document.querySelector('#add-6table-button');
 const add8TableButton = document.querySelector('#add-8table-button');
+const add5TableButton = document.querySelector('#add-5table-button');
 
 const roomDoorContainer = document.querySelector('#room-door');
 const roomObstacleContainer = document.querySelector('#room-obstacle');
 const room6TableContainer = document.querySelector('#room-6-table');
 const room8TableContainer = document.querySelector('#room-8-table');
+const room5TableContainer = document.querySelector('#room-5-table');
 
 
 
@@ -256,11 +258,38 @@ const update8TableUI = (table) => {
 
 };
 
+// Add 5' Table
+
+// Function to add a new Table
+const addNew5Table = () => {
+
+  // Create a new 5'table object.
+  const new5Table = '(5Table)';
+
+  // Add the new 5' Table to the local data
+  data.roomSetup.tables.push(new5Table);
+
+  // Call a function to update the UI with the new 5' table
+  update5TableUI(new5Table);
+};
+
+// Function to update the UI with a new 5' table
+const update5TableUI = (table) => {
+  const table5TextElement = document.createElement('span');
+  table5TextElement.textContent = table;
+
+    // Add the 8' table to the canvas (room-table-container)
+    room5TableContainer.appendChild(table5TextElement);
+
+};
+
 // Table Event Listeners
 
 // Attach an event listener to the "Add Obstacle" button
 add6TableButton.addEventListener('click', addNew6Table);
 add8TableButton.addEventListener('click', addNew8Table);
+add5TableButton.addEventListener('click', addNew5Table);
+
 //
 loadData();
 
