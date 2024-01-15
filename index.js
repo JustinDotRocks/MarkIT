@@ -91,12 +91,17 @@ createVendorButton.addEventListener("click", createNewVendorCard);
 // ROOM MENU
 
 const addDoorButton = document.querySelector('#add-door-button');
-const roomDoorContainer = document.querySelector('#room-door');
-
 const addObstacleButton = document.querySelector('#add-obstacle-button');
+const add6TableButton = document.querySelector('#add-6table-button');
+const add8TableButton = document.querySelector('#add-8table-button');
+
+const roomDoorContainer = document.querySelector('#room-door');
 const roomObstacleContainer = document.querySelector('#room-obstacle');
-const add6TableButton = document.querySelector('#add-6Table-button');
-const roomTableContainer = document.querySelector('#room-6-table');
+const room6TableContainer = document.querySelector('#room-6-table');
+const room8TableContainer = document.querySelector('#room-8-table');
+
+
+
 
 
 // Function to load initial JSON data
@@ -202,11 +207,12 @@ const updateObstacleUI = (obstacle) => {
 // Attach an event listener to the "Add Obstacle" button
 addObstacleButton.addEventListener('click', addNewObstacle);
 
-// ADD TABLE
+// ADD TABLES
 
-// Function to add a new door
+// Add 6' Table
+// Function to add a new Table
 const addNew6Table = () => {
-  // Create a new 6' table object (you can customize this structure as needed)
+  // Create a new 6' table object.
   const new6Table = '(6Table)';
 
   // Add the new 6' Table to the local data
@@ -217,16 +223,44 @@ const addNew6Table = () => {
 };
 
 // Function to update the UI with a new 6' table
-const update6TableUI = (table6) => {
+const update6TableUI = (table) => {
   const table6TextElement = document.createElement('span');
-  table6TextElement.textContent = table6;
+  table6TextElement.textContent = table;
 
   // Add the 6' table to the canvas (room-table-container)
-  roomTableContainer.appendChild(table6TextElement);
+  room6TableContainer.appendChild(table6TextElement);
 };
+
+// Add 8' Table
+
+// Function to add a new Table
+const addNew8Table = () => {
+
+  // Create a new 8'table object.
+  const new8Table = '(8Table)';
+
+  // Add the new 8' Table to the local data
+  data.roomSetup.tables.push(new8Table);
+
+  // Call a function to update the UI with the new 8' table
+  update8TableUI(new8Table);
+};
+
+// Function to update the UI with a new 8' table
+const update8TableUI = (table) => {
+  const table8TextElement = document.createElement('span');
+  table8TextElement.textContent = table;
+
+    // Add the 8' table to the canvas (room-table-container)
+    room8TableContainer.appendChild(table8TextElement);
+
+};
+
+// Table Event Listeners
 
 // Attach an event listener to the "Add Obstacle" button
 add6TableButton.addEventListener('click', addNew6Table);
+add8TableButton.addEventListener('click', addNew8Table);
 
 loadData();
 
