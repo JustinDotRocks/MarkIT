@@ -76,9 +76,9 @@
 					<!-- Add Door Section -->
 					<div class="mb-4">
 						<div class="flex items-center justify-between mb-2">
-							<div class="text-gray-600">Add Door</div>
+							<div class="room-door text-gray-600">Add Door</div>
 							<button
-								class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600"
+								class="add-door-button bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600"
 							>
 								+
 							</button>
@@ -142,6 +142,7 @@
 					</div>
 				</div>
 				<div id="vendor-menu" class="hidden active">
+                    <!-- Check the JS file for createNewVendorCard() as the HTML is rendered through said function. -->
 					<div class="menu-top-container">
 						<h2 class="setup-menu-top-container-header">Vendor Setup</h2>
 						<button class="menu-top-container-add-vendor-button">+</button>
@@ -156,6 +157,7 @@
                     <div id="room-dimensions" class="text-lg font-semibold mb-4">
                         <span id="display-room-width"></span><span id="display-room-depth"></span>
                     </div>
+                    <div id="room-door"></div>
                 </div>
 
 			</main>

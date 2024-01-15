@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		vendorMenu.classList.add("hidden");
 		setupModeBtn.classList.add("active");
 		vendorModeBtn.classList.remove("active");
-		// Additional logic for setup mode if necessary
 	});
 
 	vendorModeBtn.addEventListener("click", () => {
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		setupMenu.classList.add("hidden");
 		vendorModeBtn.classList.add("active");
 		setupModeBtn.classList.remove("active");
-		// Additional logic for vendor mode if necessary
 	});
 });
 
@@ -51,6 +49,12 @@ const createNewVendorCard = () => {
         placeholder="Enter vendor name"
       />
     </div>
+
+    <!-- Add Products (Can add more elements or buttons as needed) -->
+    <div class="mb-4">
+      <div class="text-gray-600">Add Products</div>
+      <!-- Add Product button or functionality -->
+    </div>
     
     <!-- Vendor Details (You can add more fields as needed) -->
     <div class="mb-4">
@@ -62,12 +66,6 @@ const createNewVendorCard = () => {
         rows="4"
         placeholder="Enter vendor details"
       ></textarea>
-    </div>
-
-    <!-- Add Products (You can add more elements or buttons as needed) -->
-    <div class="mb-4">
-      <div class="text-gray-600">Add Products</div>
-      <!-- Add Product button or functionality -->
     </div>
     
     <!-- Vendor Card Footer (You can add additional buttons or elements here) -->
@@ -90,9 +88,14 @@ createVendorButton.addEventListener("click", createNewVendorCard);
 
 
 // ROOM MENU
+
+// Assuming you have a button with the class "add-door-button" for adding doors
+const addDoorButton = document.querySelector('.add-door-button');
+const roomDoorContainer = document.querySelector('#room-door');
+
 // Function to load initial JSON data
 const loadData = () => {
-  fetch('data.json') // Replace 'data.json' with the correct path to the JSON file
+  fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
       data = jsonData;
@@ -103,10 +106,6 @@ const loadData = () => {
 };
 
 // updateRoomUI is for initial UI setup based on loaded data.
-// saveRoomDetails is for handling the save action and updating the data object.
-// updateRoomDetailsUI is specifically for updating the displayed room dimensions in the UI after changes are made and saved.
-
-// Function to update the Room Setup Menu UI
 const updateRoomUI = () => {
   const roomNameElement = document.getElementById('room-name');
   const roomWidthElement = document.getElementById('room-width');
@@ -117,7 +116,7 @@ const updateRoomUI = () => {
   roomDepthElement.value = data.roomSetup.roomDimensions.depth;
 };
 
-// Function to save room details
+// saveRoomDetails is for handling the save action and updating the data object.
 const saveRoomDetails = () => {
   const updatedRoomName = document.getElementById('room-name').value;
   const updatedRoomWidth = document.getElementById('room-width').value;
@@ -130,7 +129,7 @@ const saveRoomDetails = () => {
   updateRoomDetailsUI(updatedRoomName, updatedRoomWidth, updatedRoomDepth);
 };
 
-// Function to update the Room Details UI
+// updateRoomDetailsUI is specifically for updating the displayed room dimensions in the UI after changes are made and saved.
 const updateRoomDetailsUI = (name, width, depth) => {
   const roomNameElement = document.getElementById('canvas-room-name');
   const roomDimensionsElement = document.getElementById('room-dimensions');
@@ -139,9 +138,41 @@ const updateRoomDetailsUI = (name, width, depth) => {
   roomDimensionsElement.textContent = `Room Dimensions: Width - ${width} feet, Depth - ${depth} feet`;
 };
 
-
 // Event listener for the save button
 document.getElementById('save-button').addEventListener('click', saveRoomDetails);
+
+      // Attach an event listener to the "Add Door" button
+      addDoorButton.addEventListener('click', () => {
+        // Create a new text element representing a door
+        const doorTextElement = document.createElement('span');
+        doorTextElement.textContent = '(door)';
+
+        // Add the door text element to the canvas (room-door-container)
+        roomDoorContainer.appendChild(doorTextElement);
+      });
+
+// // Add an event listener to the container where doors will be added (roomDoor)
+// addDoorButton.addEventListener('click', (event) => {
+//   if (event.target.classList.contains('add-door-button')) {
+//     // Use data from your JSON file to create the door
+//     const doorData = {
+//       width: data.roomSetup.roomDimensions.width, // Use the width from your JSON
+//       height: '200px', // You can set a default height or use data from your JSON
+//       color: 'brown', // You can set a default color or use data from your JSON
+//       // Add other properties as needed
+//     };
+
+//     // Create a new door element
+//     const doorElement = document.createElement('div');
+//     doorElement.style.width = doorData.width;
+//     doorElement.style.height = doorData.height;
+//     doorElement.style.backgroundColor = doorData.color;
+//     // Set other styles and properties based on doorData
+
+//     // Add the door element to the canvas (roomDoor)
+//     roomDoor.appendChild(doorElement);
+//   }
+// });
 
 // Initial data load
 loadData();
